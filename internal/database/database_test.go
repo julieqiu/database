@@ -22,7 +22,7 @@ import (
 
 const testTimeout = 5 * time.Second
 
-const testDBName = "discovery_postgres_test"
+const testDBName = "postgres_test"
 
 var testDB *DB
 
