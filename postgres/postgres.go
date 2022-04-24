@@ -7,7 +7,7 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/julieqiu/database/internal/database"
+	"github.com/julieqiu/database/database"
 	"github.com/julieqiu/derrors"
 	"github.com/julieqiu/dlog"
 	"github.com/julieqiu/poller"
