@@ -760,6 +760,8 @@ github.com/julieqiu/derrors v0.0.0-20210614022941-f601489ffd41 h1:bfNOQ9u4VKeP6h
 github.com/julieqiu/derrors v0.0.0-20210614022941-f601489ffd41/go.mod h1:uiPOjKLDAYp8ssqLkpXNofm5Bh5eZ7wSxoxxI4tVwmc=
 github.com/julieqiu/dlog v0.0.0-20220424155137-44fe2aa631da h1:ZFOt5d7Prm0xf6p+TGX4osS54XH1uzQ4xBzAZ7iqxYw=
 github.com/julieqiu/dlog v0.0.0-20220424155137-44fe2aa631da/go.mod h1:n1gtrVhRT56aSq5FshNUZYNb6KymJRwPcZ6nomeJZso=
+github.com/julieqiu/dlog v0.0.0-20220521223154-5020f471fd21 h1:rMEoW6GBbYwfCN5w4l/Xu9VQgSJMlmaX5aSY07/0czM=
+github.com/julieqiu/dlog v0.0.0-20220521223154-5020f471fd21/go.mod h1:n1gtrVhRT56aSq5FshNUZYNb6KymJRwPcZ6nomeJZso=
 github.com/julieqiu/poller v0.0.0-20220424152145-dd298358ec0c h1:Capil+X5T6Fv2VvXugysc+TFaK4VAndME2vgqG7hFfg=
 github.com/julieqiu/poller v0.0.0-20220424152145-dd298358ec0c/go.mod h1:AVrgIfyygaRlrS/ZtQMYbjaLq5NWiHvhWXG+cHaCgSs=
 github.com/jung-kurt/gofpdf v1.0.0/go.mod h1:7Id9E/uU8ce6rXgefFLlgrJj/GYY22cpxn+r32jIOes=

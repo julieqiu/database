@@ -9,7 +9,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"log"
 	"regexp"
 	"strings"
 	"sync"
@@ -17,6 +16,7 @@ import (
 
 	"github.com/jackc/pgconn"
 	"github.com/julieqiu/derrors"
+	"github.com/julieqiu/dlog"
 	"github.com/lib/pq"
 )
 
@@ -121,7 +121,7 @@ func (db *DB) QueryRow(ctx context.Context, query string, args ...interface{}) *
 		if ctx.Err() != nil {
 			d, _ := ctx.Deadline()
 			msg := fmt.Sprintf("args=%v; elapsed=%q, start=%q, deadline=%q", args, time.Since(start), start, d)
-			log.Printf(ctx, "QueryRow context error: %v "+msg, ctx.Err())
+			dlog.Debugf(ctx, "QueryRow context error: %v "+msg, ctx.Err())
 		}
 	}()
 	if db.tx != nil {
@@ -235,20 +235,20 @@ func (db *DB) transactWithRetry(ctx context.Context, opts *sql.TxOptions, txFunc
 				db.maxRetries = i
 			}
 			db.mu.Unlock()
-			log.Debugf(ctx, "serialization failure; retrying after %s", sleepDur)
+			dlog.Debugf(ctx, "serialization failure; retrying after %s", sleepDur)
 			time.Sleep(sleepDur)
 			sleepDur *= 2
 			continue
 		}
 		if err != nil {
-			log.Debugf(ctx, "transactWithRetry: error type %T: %[1]v", err)
+			dlog.Debugf(ctx, "transactWithRetry: error type %T: %[1]v", err)
 			if strings.Contains(err.Error(), serializationFailureCode) {
 				return fmt.Errorf("error text has %q but not recognized as serialization failure: type %T, err %v",
 					serializationFailureCode, err, err)
 			}
 		}
 		if i > 0 {
-			log.Debugf(ctx, "retried serializable transaction %d time(s)", i)
+			dlog.Debugf(ctx, "retried serializable transaction %d time(s)", i)
 		}
 		return err
 	}

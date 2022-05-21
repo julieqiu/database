@@ -9,7 +9,7 @@ require (
 	github.com/jackc/pgconn v1.12.1
 	github.com/jackc/pgx/v4 v4.16.1
 	github.com/julieqiu/derrors v0.0.0-20210614022941-f601489ffd41
-	github.com/julieqiu/dlog v0.0.0-20220424155137-44fe2aa631da
+	github.com/julieqiu/dlog v0.0.0-20220521223154-5020f471fd21
 	github.com/julieqiu/poller v0.0.0-20220424152145-dd298358ec0c
 	github.com/lib/pq v1.10.6
 )

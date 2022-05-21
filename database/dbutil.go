@@ -11,8 +11,6 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/julieqiu/derrors"
-
 	// imported to register the postgres migration driver
 	"github.com/golang-migrate/migrate/v4"
 	_ "github.com/golang-migrate/migrate/v4/database/postgres"
@@ -63,7 +61,7 @@ func ConnectAndExecute(uri string, dbFunc func(*sql.DB) error) (outerErr error) 
 		err = pg.Ping()
 	}
 	if err != nil {
-		return fmt.Errorf("%w: %v", derrors.NotFound, err)
+		return err
 	}
 	defer func() {
 		if err := pg.Close(); err != nil {

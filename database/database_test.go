@@ -17,7 +17,6 @@ import (
 	"github.com/jackc/pgconn"
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/stdlib"
-	"github.com/julieqiu/derrors"
 )
 
 const testTimeout = 5 * time.Second
@@ -28,7 +27,7 @@ var testDB *DB
 
 func TestMain(m *testing.M) {
 	if err := CreateDBIfNotExists(testDBName); err != nil {
-		if errors.Is(err, derrors.NotFound) && os.Getenv("DATABASE_TEST") != "true" {
+		if os.Getenv("DATABASE_TEST") != "true" {
 			log.Printf("SKIPPING: could not connect to DB (see doc/postgres.md to set up): %v", err)
 			return
 		}
